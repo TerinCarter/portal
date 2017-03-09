@@ -1,0 +1,1 @@
+json.array! @semanticcategories, partial: 'semanticcategories/semanticcategory', as: :semanticcategory

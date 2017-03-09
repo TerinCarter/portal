@@ -1,0 +1,1 @@
+json.partial! "typesoftwares/typesoftware", typesoftware: @typesoftware

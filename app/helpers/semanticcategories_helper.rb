@@ -1,0 +1,2 @@
+module SemanticcategoriesHelper
+end

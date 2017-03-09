@@ -1,0 +1,1 @@
+json.array! @typesoftwares, partial: 'typesoftwares/typesoftware', as: :typesoftware

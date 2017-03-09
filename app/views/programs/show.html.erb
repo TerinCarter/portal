@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @program.name %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @program.version %>
+</p>
+
+<p>
+  <strong>Test:</strong>
+  <%= @program.test %>
+</p>
+
+<p>
+  <strong>Dowloadlinkone:</strong>
+  <%= @program.dowloadLinkOne %>
+</p>
+
+<p>
+  <strong>Dowloadlinktwo:</strong>
+  <%= @program.dowloadLinkTwo %>
+</p>
+
+<p>
+  <strong>Screenshotslinks:</strong>
+  <%= @program.screenshotsLinks %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @program.rating %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @program.status %>
+</p>
+
+<%= link_to 'Edit', edit_program_path(@program) %> |
+<%= link_to 'Back', programs_path %>
