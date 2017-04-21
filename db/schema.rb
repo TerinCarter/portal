@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309163450) do
+ActiveRecord::Schema.define(version: 20170421141610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,46 @@ ActiveRecord::Schema.define(version: 20170309163450) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "programs_developers", id: false, force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "developer_id"
+  end
+
+  add_index "programs_developers", ["developer_id"], name: "index_programs_developers_on_developer_id", using: :btree
+  add_index "programs_developers", ["program_id"], name: "index_programs_developers_on_program_id", using: :btree
+
+  create_table "programs_operatingsystems", id: false, force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "operatingsystem_id"
+  end
+
+  add_index "programs_operatingsystems", ["operatingsystem_id"], name: "index_programs_operatingsystems_on_operatingsystem_id", using: :btree
+  add_index "programs_operatingsystems", ["program_id"], name: "index_programs_operatingsystems_on_program_id", using: :btree
+
+  create_table "programs_semanticcategories", id: false, force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "semanticcategory_id"
+  end
+
+  add_index "programs_semanticcategories", ["program_id"], name: "index_programs_semanticcategories_on_program_id", using: :btree
+  add_index "programs_semanticcategories", ["semanticcategory_id"], name: "index_programs_semanticcategories_on_semanticcategory_id", using: :btree
+
+  create_table "programs_typeofsoftwares", id: false, force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "typeofsoftware_id"
+  end
+
+  add_index "programs_typeofsoftwares", ["program_id"], name: "index_programs_typeofsoftwares_on_program_id", using: :btree
+  add_index "programs_typeofsoftwares", ["typeofsoftware_id"], name: "index_programs_typeofsoftwares_on_typeofsoftware_id", using: :btree
+
+  create_table "programs_users", id: false, force: :cascade do |t|
+    t.integer "program_id"
+    t.integer "user_id"
+  end
+
+  add_index "programs_users", ["program_id"], name: "index_programs_users_on_program_id", using: :btree
+  add_index "programs_users", ["user_id"], name: "index_programs_users_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
