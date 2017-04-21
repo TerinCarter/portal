@@ -17,6 +17,13 @@
 
 class Program < ActiveRecord::Base
 
+validates :name, presence: true
+validates :test, presence: true
+validates :dowloadLinkOne , presence: true
+validates :dowloadLinkTwo, presence: true
+validates :rating, presence: true
+validates :status, presence: true
+
 has_and_belongs_to_many :users
 has_and_belongs_to_many :semanticcategorys
 has_and_belongs_to_many :operatingsystems
