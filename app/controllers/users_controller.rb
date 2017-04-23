@@ -11,12 +11,20 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @title = @user.nickname
   end
 
   # GET /users/new
   def new
     @title = "Sign up"
-    @user = User.new
+    @user = User.new(params[:user])
+    if @user.save
+      flash[:success] = "Welcome to our Portal!"
+      redirect_to @user
+    else
+      @title = "Sign up"
+      render 'new'
+    end
   end
 
   # GET /users/1/edit
