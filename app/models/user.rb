@@ -12,9 +12,16 @@
 
 class User < ActiveRecord::Base
 
-validates :nickname, presence: true
-validates :password, presence: true
-validates :email, presence: true
+email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+validates :nickname, presence: true,
+                     :length => { :maximum => 50 },
+		     :uniqueness   => true
+validates :password, presence: true,
+ 		     :length => { :maximum => 20 }
+validates :email, presence: true,
+		  :format => { :with => email_regex },
+		  :uniqueness   => true                    
 
 belongs_to :role
 has_many :comments

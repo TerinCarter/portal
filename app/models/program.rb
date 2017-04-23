@@ -17,7 +17,9 @@
 
 class Program < ActiveRecord::Base
 
-validates :name, presence: true
+validates :name, presence: true,
+                 :length => { :maximum => 50 },
+		 :uniqueness   => true  
 validates :test, presence: true
 validates :dowloadLinkOne , presence: true
 validates :dowloadLinkTwo, presence: true

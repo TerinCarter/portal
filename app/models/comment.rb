@@ -10,7 +10,8 @@
 
 class Comment < ActiveRecord::Base
 
-validates :text, presence: true
+validates :text, presence: true,
+                  :length => { :maximum => 150 }
 
 belongs_to :user
 belongs_to :program
