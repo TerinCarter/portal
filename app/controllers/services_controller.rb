@@ -35,11 +35,6 @@ def create
      omniauth['user_info']['name'] ? name =  omniauth['user_info']['name'] : name = ''
      omniauth['extra']['user_hash']['id'] ?  uid =  omniauth['extra']['user_hash']['id'] : uid = ''
      omniauth['provider'] ? provider =  omniauth['provider'] : provider = ''
-   elsif service_route == 'twitter'
-     email = ''    # Twitter API never returns the email address
-     omniauth['user_info']['name'] ? name =  omniauth['user_info']['name'] : name = ''
-     omniauth['uid'] ?  uid =  omniauth['uid'] : uid = ''
-     omniauth['provider'] ? provider =  omniauth['provider'] : provider = ''
    else
      # we have an unrecognized service, just output the hash that has been returned
      render :text => omniauth.to_yaml
