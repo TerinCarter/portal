@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :programs
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :services, :only => [:index, :create, :destroy]
 
   match '/signup',  :to => "users#new", via: [:get, :post]
   match '/signin',  :to => "sessions#new", via: [:get, :post]
   match '/signup' => "sessions#destroy", via: [:get, :post]
+  match '/auth/:service/callback' => "services#create", via: [:get, :post]
   root :to => "users#index", via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

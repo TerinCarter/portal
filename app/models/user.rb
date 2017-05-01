@@ -12,6 +12,10 @@
 
 class User < ActiveRecord::Base
 
+devise :database_authenticatable, :oauthable, :registerable,
+        :recoverable, :rememberable, :trackable, :validatable,
+        :confirmable, :lockable
+
 attr_accessor :password
 
 email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -64,5 +68,6 @@ validates :email, presence: true,
 belongs_to :role
 has_many :comments
 has_and_belongs_to_many :programs
+has_many :services, :dependent => :destroy
 
 end
